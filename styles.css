@@ -1,0 +1,36 @@
+body {
+    font-family: "lavishly yours", cursive;
+    background-color: grey;
+    line-height: 1.20;
+    font-size: 3rem;
+    color: white;
+}
+.signup-form{
+    background-color: lightblue;
+    padding: 20px;
+
+}
+.form-input{
+    background-color: lightblue;
+    padding: 30px;
+    width: 300px;
+    
+
+}
+.signup-form input[type="submit"]{
+    background-color: darkblue;
+    line-height: 1.10;
+    font-family: Arial;
+    border: none;
+    border-radius: 20px;
+
+}
+*{
+    box-sizing: border-box;
+}
+.card{
+    background-color: white;
+padding: 20px;
+border: 2px solid black;
+margin: 20px;
+}
