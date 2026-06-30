@@ -8,7 +8,9 @@ body {
 .signup-form{
     background-color: lightblue;
     padding: 20px;
-
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 .form-input{
     background-color: lightblue;

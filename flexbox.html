@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My new website</title>
+    <style>
+        .navbar {
+            display: flex;
+            flex-direction: row;        /* links ek line mein, side-by-side */
+            gap: 16px;
+            justify-content: center;    /* main axis (horizontal): links ko beech mein */
+            align-items: center;        /* cross axis (vertical): links ko center mein */
+        }
+
+        .items {
+            display: flex;
+            flex-direction: column;   /* items upar se neeche */
+            gap: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Contact Us</a>
+        <a href="#">About Me</a>
+    </nav>
+
+    <div class="items">
+        <div>item1</div>
+        <div>item2</div>
+        <div>item3</div>
+    </div>
+</body>
+
+</html>
