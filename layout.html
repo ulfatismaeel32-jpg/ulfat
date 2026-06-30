@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Layout page</title>
+    <style>
+        .links {
+            width: 200px;
+            font-size: 32px;
+
+        }
+
+        .new {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            text-align: center;
+            background-color: lightblue;
+        }
+
+        .cards {
+            flex-grow: 1;
+            padding: 16px;
+            width: 200px;
+            background-color: black;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+
+        }
+        
+    </style>
+</head>
+
+<body>
+    <nav class="new">
+        <a class="links" href="https://www.youtube.com/">youtube</a>
+        <a class="links" href="https://www.google.com/">google</a>
+        <a class="links" href="https://chatgpt.com/">chatgpt</a>
+    </nav>
+    <section class="hero">
+        <h1> wellcome to ulfat's web</h1>
+        <p>I am a begginer in web development and I want to learn it thoroughly in a very short period of time.</p>
+        <button>Submit</button>
+    </section>
+
+    
+        <div class="container">
+            <div class="cards">Card 1</div>
+            <div class="cards">Card 2</div>
+            <div class="cards">Card 3</div>
+        </div>
+    </body>
+
+</html>
