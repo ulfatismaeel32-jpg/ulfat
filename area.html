@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new website</title>
+    <style>
+    .container{
+        display: grid;
+        grid-template-areas:
+        "header header"
+        "aside main"
+        "footer footer"
+    }
+    header{ grid-area: header; background-color: grey;}
+    aside{ grid-area: aside; background-color:pink;}
+    main{ grid-area: main; background-color: green;}
+    footer{ grid-area: footer; background-color:red;}
+</style>
+</head>
+<body>
+    <div class="container">
+    <header>
+<h1>Wellcome to this web</h1>
+    </header>
+    <aside>
+<p>this is only meant for developers</p>
+    </aside>
+    <main>
+<p>here you can learn things of many kinds</p>
+    </main>
+    <footer>
+<p>thanks for visiting!!</p>
+    </footer>
+    </div>
+</body> 
+</html>
