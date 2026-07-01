@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid practice</title>
+    <style>
+        .container {
+            display: grid;
+            height: 100vh;
+            grid-template-rows: 100px 1fr 100px;
+            gap: 10px;
+        } 
+        .header{
+            background-color: lightgreen;
+            border: 2px solid darkgreen;
+        }
+        .main{
+            background-color: lightpink;
+
+            border: 2px solid black;
+        }
+        .footer{
+            background-color: lightblue;
+
+            border: 2px solid darkblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Most Wellcome to this site</h1>
+        </header>
+        <main class="main">Hello every one !!</main>
+        <footer class="footer">
+            <p>Thanks for visiting dear teacher claude!</p>
+        </footer>
+    </div>
+</body>
+
+</html>
