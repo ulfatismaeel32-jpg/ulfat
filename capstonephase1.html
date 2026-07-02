@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>capstone phase 1</title>
+    <meta property="og:title" content="capstone phase 1">
+    <meta property="og:description" content="web developer,learning phase">
+    <meta name="description" content="web developer,learning phase">
+    <meta property="og:image"
+        content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU97MsWT1z8W3c7kOFBJO2FKJEELK8ukjO9fw6jBdUe7kVsS0Lr2DryTzA&s=10">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ulfatismaeel32-jpg.github.io/ulfat/capstonephase1.html">
+     <style>
+        .card1 {
+
+            background-color: lightpink;
+            border: 2px solid black;
+            font-size: 20px;
+            line-height: 20px;
+
+        }
+
+        .card2 {
+
+            background-color: lightgrey;
+            border: 2px solid black;
+            font-size: 20px;
+            line-height: 20px;
+
+        }
+
+        .card3 {
+            background-color: lightgreen;
+            border: 2px solid black;
+            font-size: 20px;
+            line-height: 20px;
+
+        }  
+             .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap:10px;
+        }
+
+        @media(min-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 200px);
+            }
+        }
+
+        @media(min-width: 1024px) {
+            .container {
+                grid-template-columns: repeat(3, 200px);
+            }
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 20px;
+            line-height: 20px;
+
+        }
+
+        main {
+            font-size: 20px;
+            line-height: 20px;
+
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card1:hover {
+            transform: scale(1.05);
+            background-color: skyblue;
+
+        }
+
+        button:hover,
+        button:focus {
+            background-color: purple;
+        }
+
+        button {
+            transition: 200ms ease;
+        }
+
+        .card1 {
+            transition: 200ms ease;
+        }
+
+        .card2:hover {
+            transform: scale(1.05);
+            background-color: darkgrey;
+
+        }
+
+        .card3:hover {
+            transform: scale(1.05);
+            background-color: darkgreen;
+
+        }
+
+        .card2 {
+            transition: 200ms ease;
+        }
+
+        .card3 {
+            transition: 200ms ease;
+        }
+
+        .links {
+            width: 200px;
+            font-size: 32px;
+
+        }
+
+        .new {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="new">
+        <a class="links" href="https://www.youtube.com/">youtube</a>
+        <a class="links" href="https://www.google.com/">google</a>
+        <a class="links" href="https://chatgpt.com/">chatgpt</a>
+    </nav>
+    <header>
+        <h1>welcome to this site</h1>
+    </header>
+    <main>
+        <h2>About Me</h2>
+        <p>i am ulfat</p>
+        <p>contact me</p>
+    </main>
+    <section>
+        <h2>Best Selling point</h2>
+        <p>here you can get things of your own choice !</p>
+        <button>Get started</button>
+    </section>
+    <div class="container">
+        <div class="card1">
+            <h2> notebook</h2>
+            <p>you can note your important task here</p>
+            <button>select</button>
+        </div>
+        <div class="card2">
+            <h2>book</h2>
+            <p>you can learn things from this</p>
+            <button>select</button>
+        </div>
+        <div class="card3">
+            <h2>pen</h2>
+            <p>with the help of this you can note down things</p>
+            <button>select</button>
+        </div>
+    </div>
+    <footer>
+        <p>thanks for visiting</p>
+    </footer>
+</body>
+
+</html>
