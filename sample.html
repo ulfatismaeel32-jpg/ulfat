@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stationery Store — study essentials</title>
+
+    <!-- SEO + social sharing -->
+    <meta name="description" content="A small stationery store: notebooks, books and pens to help you study and note things down.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Stationery Store — study essentials">
+    <meta property="og:description" content="Notebooks, books and pens to help you study and note things down.">
+    <meta property="og:image" content="https://picsum.photos/1200/630">
+    <meta property="og:url" content="https://ulfatismaeel32-jpg.github.io/ulfat/sample.html">
+
+    <style>
+        /* ---- DESIGN TOKENS (ek jagah se poora page control) ---- */
+        :root {
+            --brand:        #5b3fa8;   /* main purple */
+            --brand-dark:   #3d2a73;
+            --ink:          #1e1b2e;   /* text color (high contrast) */
+            --muted:        #5c5870;   /* halka text */
+            --bg:           #f7f5fb;   /* page background */
+            --card:         #ffffff;
+            --border:       #e2ddef;
+            --radius:       14px;
+            --space:        clamp(1rem, 3vw, 2rem);  /* fluid spacing */
+            --shadow:       0 6px 20px rgba(40, 20, 90, .08);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.6;
+        }
+
+        /* ---- accessible focus ring for EVERY interactive element ---- */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--brand);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* ---- NAV ---- */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem var(--space);
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+        }
+        .logo { font-weight: 700; font-size: 1.25rem; color: var(--brand-dark); }
+        nav ul { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+        nav a {
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 500;
+            transition: color 200ms ease;
+        }
+        nav a:hover { color: var(--brand); }
+
+        /* ---- HERO ---- */
+        .hero {
+            text-align: center;
+            padding: clamp(3rem, 8vw, 6rem) var(--space);
+            background: linear-gradient(160deg, #efeafc, var(--bg));
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);   /* fluid heading */
+            color: var(--brand-dark);
+            max-width: 16ch;
+            margin: 0 auto .75rem;
+            line-height: 1.15;
+        }
+        .hero p { color: var(--muted); max-width: 42ch; margin: 0 auto 1.75rem; }
+
+        .btn {
+            display: inline-block;
+            padding: .8rem 1.6rem;
+            background: var(--brand);
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 200ms ease, background 200ms ease;
+        }
+        .btn:hover { background: var(--brand-dark); transform: translateY(+2px); }
+
+        /* ---- SECTIONS ---- */
+        section { padding: clamp(2.5rem, 6vw, 4rem) var(--space); }
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            color: var(--brand-dark);
+            margin-bottom: .5rem;
+        }
+        .section-sub { text-align: center; color: var(--muted); margin-bottom: 2.5rem; }
+
+        /* ---- CARD GRID ---- */
+        .cards {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            max-width: 1000px;
+            margin-inline: auto;   /* logical property (auto left+right) */
+            container-type: inline-size;
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            box-shadow: var(--shadow);
+            transition: transform 200ms ease, box-shadow 200ms ease;
+        }
+        .card:hover { transform: translateY(+4px); box-shadow: 0 12px 28px rgba(40,20,90,.14); }
+
+        /* :has() — jis card ke andar "popular" badge hai, use highlight karo */
+        .card:has(.badge) { border-color: var(--brand); }
+
+        .badge {
+            display: inline-block;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: var(--brand-dark);
+            background: #ece5fb;
+            padding: .25rem .6rem;
+            border-radius: 999px;
+            margin-bottom: .75rem;
+        }
+        .card h3 { font-size: 1.35rem; margin-bottom: .4rem; }
+        .card p  { color: var(--muted); margin-bottom: 1.25rem; }
+
+        .card .btn { background: var(--brand); font-size: .9rem; padding: .55rem 1.1rem; }
+
+        /* container query — jab card grid tang (narrow) ho, card compact ho jaye */
+        @container (max-width: 400px) {
+            .card { padding: 1.25rem; }
+            .card h3 { font-size: 1.15rem; }
+        }
+
+        /* ---- FOOTER ---- */
+        footer {
+            text-align: center;
+            padding: 2.5rem var(--space);
+            background: var(--brand-dark);
+            color: #d9d2f0;
+        }
+        footer a { color: #fff; }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <span class="logo">✎ Stationery</span>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" id="home">
+        <h1>Everything you need to study &amp; take notes</h1>
+        <p>Simple, affordable stationery — notebooks, books and pens picked to help you learn better.</p>
+        <a class="btn" href="#products">Shop products</a>
+    </header>
+
+    <main>
+        <section id="products">
+            <h2 class="section-title">Best selling</h2>
+            <p class="section-sub">Things of your own choice, ready to grab.</p>
+
+            <div class="cards">
+                <article class="card">
+                    <span class="badge">Popular</span>
+                    <h3>Notebook</h3>
+                    <p>Note your important tasks and keep them all in one place.</p>
+                    <button class="btn">Select</button>
+                </article>
+
+                <article class="card">
+                    <h3>Book</h3>
+                    <p>Learn new things and grow your knowledge every day.</p>
+                    <button class="btn">Select</button>
+                </article>
+
+                <article class="card">
+                    <h3>Pen</h3>
+                    <p>Write and note things down smoothly, whenever ideas strike.</p>
+                    <button class="btn">Select</button>
+                </article>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">About me</h2>
+            <p class="section-sub">Hi, I'm Ulfat — learning to build the web, one page at a time.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Thanks for visiting! · <a href="#home">Back to top</a></p>
+    </footer>
+</body>
+
+</html>

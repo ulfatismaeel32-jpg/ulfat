@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Quiz Game</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#222;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.game{
+    width:400px;
+    background:#333;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border:none;
+    border-radius:5px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#00b894;
+    color:white;
+}
+
+#result{
+    margin-top:15px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+#score{
+    margin-top:15px;
+    color:gold;
+    font-size:22px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="game">
+
+<h1>HTML Quiz Game</h1>
+
+<h3 id="question"></h3>
+
+<div id="options"></div>
+
+<p id="result"></p>
+
+<h2 id="score">Score : 0</h2>
+
+</div>
+
+<script>
+
+const questions=[
+{
+question:"Heading banane ke liye konsa tag use hota hai?",
+options:["<div>","<h1>","<span>","<p>"],
+answer:"<h1>"
+},
+{
+question:"Paragraph ke liye?",
+options:["<img>","<section>","<p>","<br>"],
+answer:"<p>"
+},
+{
+question:"Image ke liye?",
+options:["<img>","<video>","<audio>","<link>"],
+answer:"<img>"
+},
+{
+question:"Hyperlink ke liye?",
+options:["<a>","<button>","<form>","<ul>"],
+answer:"<a>"
+}
+];
+
+let current=0;
+let score=0;
+
+const question=document.getElementById("question");
+const options=document.getElementById("options");
+const result=document.getElementById("result");
+const scoreText=document.getElementById("score");
+
+function loadQuestion(){
+
+result.innerHTML="";
+
+question.innerHTML=questions[current].question;
+
+options.innerHTML="";
+
+questions[current].options.forEach(option=>{
+
+let btn=document.createElement("button");
+
+btn.innerHTML=option;
+
+btn.onclick=()=>checkAnswer(option);
+
+options.appendChild(btn);
+
+});
+
+}
+
+function checkAnswer(selected){
+
+if(selected===questions[current].answer){
+
+score++;
+
+result.innerHTML="✅ Correct";
+
+}else{
+
+result.innerHTML="❌ Wrong";
+
+}
+
+scoreText.innerHTML="Score : "+score;
+
+current++;
+
+setTimeout(()=>{
+
+if(current<questions.length){
+
+loadQuestion();
+
+}else{
+
+question.innerHTML="Game Over 🎉";
+
+options.innerHTML="";
+
+result.innerHTML="Final Score : "+score+" / "+questions.length;
+
+}
+
+},700);
+
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
