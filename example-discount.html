@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discount Calculator — Example</title>
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 400px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f4f4f8;
+    }
+    h1 { font-size: 1.3rem; }
+    label { display: block; margin-top: 12px; font-weight: bold; }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 16px;
+      padding: 10px 16px;
+      background: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #natija {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #16a34a;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Discount Calculator</h1>
+
+  <!-- Input boxes. Har ek ko ek "id" di hai taake JS unki value parh sake -->
+  <label>Price (Rs):</label>
+  <input type="number" id="price" placeholder="1000">
+
+  <label>Discount (%):</label>
+  <input type="number" id="discount" placeholder="20">
+
+  <!-- Button dabane pe hisaab() function chalega -->
+  <button onclick="hisaab()">Calculate</button>
+
+  <!-- Yahan jawab dikhega. Abhi khaali hai -->
+  <p id="natija"></p>
+
+
+  <script>
+    // ========== 1) ASLI LOGIC — named function (yeh dil hai) ==========
+    // Yeh function do numbers leta hai aur final price RETURN karta hai.
+    // Isमें variables bhi hain aur ek if/else conditional bhi.
+    function finalPrice(price, discount) {
+
+      // agar discount 100 se zyada ho to woh ghalat hai — 0 discount maan lo
+      if (discount > 100) {
+        discount = 0;
+      }
+
+      let discountAmount = price * discount / 100;   // kitne paise kam honge
+      let baaqi = price - discountAmount;             // final price
+      return baaqi;                                    // jawab wapas bhejo
+    }
+
+
+    // ========== 2) PAGE se input parho + output dikhao ==========
+    // Yeh function button dabane pe chalta hai.
+    function hisaab() {
+
+      // .value se input box ke andar likhi cheez milti hai (hamesha text/string).
+      // Number(...) usay number mein badal deta hai taake hisaab ho sake.
+      let price = Number(document.getElementById("price").value);
+      let discount = Number(document.getElementById("discount").value);
+
+      // upar wala asli function call kiya — jawab 'total' mein aaya
+      let total = finalPrice(price, discount);
+
+      // .textContent se page ke <p id="natija"> ke andar text likh dete hain
+      document.getElementById("natija").textContent = "Final Price: Rs " + total;
+    }
+  </script>
+
+</body>
+</html>
