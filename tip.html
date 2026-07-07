@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My information</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap : 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tip calculator</h1>
+    <label>Price (Rs)</label>
+    <input id="price" type="number" placeholder="1000">
+    <label>Tip %</label>
+    <input id="tip" type="number" placeholder="50">
+    <button onclick="hissab()">calculate</button>
+    <p id="result"></p>
+
+    <script> 
+function totaltip(price,tip){
+    if(tip>100){
+        tip=0;
+    }
+let tipamount = price * tip / 100;
+let baqii = price + tipamount ;
+return baqii;
+}
+function hissab(){
+    let price = Number(document.getElementById("price").value);
+    let tip = Number(document.getElementById("tip").value);
+    let  total = totaltip(price,tip);
+    document.getElementById("result").textContent = "final price (Rs) = " + total;
+}
+     </script>
+</body></html>
