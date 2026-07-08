@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My information</title>
+    <style>
+        .Aagaya{
+            text-decoration : line-through ; color : blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>appointed soldiers </h1>
+    <label for="naamInput"> soldiers k naam</label>
+    <input id="naamInput" type="text">
+    <button id="addBtn">Add karoo</button>
+    <ul id="soldiersList"></ul>
+    <script>
+        let input = document.querySelector("#naamInput");
+        let addBtn = document.querySelector("#addBbtn");
+        let list = document.querySelector("#soldiersList");
+        addBtn.addEventListener("click", function () {
+            let nam = input.value;
+            if (nam === "") return;
+            let li = document.createElement("li");
+            let span = document.createElement("span");
+            span.textContent = nam;
+            let doneBtn = document.createElement("button");
+            doneBtn.textContent = "Aa gaya";
+            doneBtn.addEventListener("click", function () {
+                span.classList.toggle("Aagaya");
+            });
+            let delBtn = document.createElement("button");
+            delBtn.textContent = "Delete";
+            delBtn.addEventListener("click", function () {
+                li.remove();
+            });
+            li.appendChild(span);
+            li.appendChild(doneBtn);
+            li.appendChild(delBtn);
+            list.appendChild(li);
+            input.value = "";
+        });
+    </script>
+</body>
+
+</html>
