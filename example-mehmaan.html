@@ -1,0 +1,171 @@
+<title>Dawat ki Mehmaan List — Sample</title>
+<style>
+  :root {
+    --bg: #f6f1ee;
+    --card: #ffffff;
+    --ink: #2c2230;
+    --muted: #8a7d84;
+    --line: #e6dcd9;
+    --accent: #8a3d63;
+    --accent-ink: #ffffff;
+    --danger: #a23b3b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #201a22;
+      --card: #2b2430;
+      --ink: #f3ecef;
+      --muted: #ab9ea6;
+      --line: #3d3440;
+      --accent: #d98cb0;
+      --accent-ink: #2a1720;
+      --danger: #e08a8a;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f6f1ee; --card: #ffffff; --ink: #2c2230; --muted: #8a7d84;
+    --line: #e6dcd9; --accent: #8a3d63; --accent-ink: #ffffff; --danger: #a23b3b;
+  }
+  :root[data-theme="dark"] {
+    --bg: #201a22; --card: #2b2430; --ink: #f3ecef; --muted: #ab9ea6;
+    --line: #3d3440; --accent: #d98cb0; --accent-ink: #2a1720; --danger: #e08a8a;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 2.5rem 1.25rem;
+  }
+  .wrap { width: 100%; max-width: 30rem; }
+
+  header { margin-bottom: 1.75rem; }
+  h1 {
+    margin: 0 0 .35rem;
+    font-size: 1.7rem;
+    letter-spacing: -.01em;
+    text-wrap: balance;
+  }
+  .sub { margin: 0; color: var(--muted); font-size: .95rem; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.25rem;
+    box-shadow: 0 6px 24px rgba(0,0,0,.05);
+  }
+
+  label {
+    display: block;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--muted);
+    margin-bottom: .4rem;
+  }
+  .row { display: flex; gap: .5rem; }
+  #naamInput {
+    flex: 1;
+    padding: .6rem .7rem;
+    font-size: 1rem;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 9px;
+  }
+  #naamInput:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  button { font: inherit; cursor: pointer; border-radius: 9px; }
+  #addBtn {
+    padding: .6rem 1rem;
+    border: none;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 600;
+  }
+  #addBtn:hover { filter: brightness(1.05); }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  ul { list-style: none; margin: 1.25rem 0 0; padding: 0; display: flex; flex-direction: column; gap: .5rem; }
+  li {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .55rem .7rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  li span { flex: 1; }
+  .aaGaya { text-decoration: line-through; color: var(--muted); }
+
+  li button {
+    padding: .3rem .6rem;
+    font-size: .82rem;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink);
+  }
+  li button.del { color: var(--danger); border-color: var(--danger); }
+  .empty { color: var(--muted); font-size: .9rem; margin-top: 1rem; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Dawat ki Mehmaan List 🎉</h1>
+    <p class="sub">Naam likho → "Add karo". Har mehmaan ko "Aa gaya" ya "Delete" karo. Sab live — bina page reload.</p>
+  </header>
+
+  <div class="card">
+    <label for="naamInput">Mehmaan ka naam</label>
+    <div class="row">
+      <input id="naamInput" type="text" placeholder="Jaise: Ayesha Aunty">
+      <button id="addBtn">Add karo</button>
+    </div>
+    <ul id="mehmaanList"></ul>
+    <p class="empty" id="emptyNote">Abhi list khaali hai — pehla mehmaan add karo.</p>
+  </div>
+</div>
+
+<script>
+  let input  = document.querySelector("#naamInput");
+  let addBtn = document.querySelector("#addBtn");
+  let list   = document.querySelector("#mehmaanList");
+  let emptyNote = document.querySelector("#emptyNote");
+
+  addBtn.addEventListener("click", function () {
+    let naam = input.value;
+    if (naam === "") return;                 // khaali ho to kuch mat karo
+
+    let li = document.createElement("li");    // 1) naya item
+
+    let span = document.createElement("span");
+    span.textContent = naam;                  // 2) naam dikhao
+
+    let doneBtn = document.createElement("button");   // 3) complete button
+    doneBtn.textContent = "Aa gaya";
+    doneBtn.addEventListener("click", function () {
+      span.classList.toggle("aaGaya");        // line-through on/off
+    });
+
+    let delBtn = document.createElement("button");    // 4) delete button
+    delBtn.className = "del";
+    delBtn.textContent = "Delete";
+    delBtn.addEventListener("click", function () {
+      li.remove();                            // poora item hatao
+    });
+
+    li.appendChild(span);                     // 5) sab li mein jodo
+    li.appendChild(doneBtn);
+    li.appendChild(delBtn);
+    list.appendChild(li);                     //    li ko list mein chipkao
+
+    input.value = "";                         // 6) input khaali
+    emptyNote.style.display = "none";         // note chhupa do
+  });
+</script>
