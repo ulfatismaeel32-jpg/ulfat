@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+  <meta charset="UTF-8">
+  <title>Daam Pehchano — Sample</title>
+</head>
+<body>
+
+  <h1>Daam Pehchano 🛒</h1>
+
+  <!-- Yahan loop items daalega (khaali dabba) -->
+  <div id="list"></div>
+
+  <button onclick="natija()">Result dikhao</button>
+
+  <!-- Yahan score aayega -->
+  <p id="score"></p>
+
+
+  <script>
+    // 1) Array of objects — har cheez ka naam aur uska SAHI daam
+    let saman = [
+      { cheez: "Doodh (1 litre)", sahiDaam: 200 },
+      { cheez: "Anday (1 dozen)", sahiDaam: 300 },
+      { cheez: "Double Roti",     sahiDaam: 150 }
+    ];
+
+    // 2) Loop se har cheez ke saamne ek input box banao
+    let html = "";
+    for (let i = 0; i < saman.length; i++) {
+      html = html + "<p>" + saman[i].cheez + ": ";
+      html = html + "<input id='ans" + i + "' type='number'>";
+      html = html + "</p>";
+    }
+    document.getElementById("list").innerHTML = html;
+
+    // 3) Button dabne par: har jawab check karo, sahi par score++
+    function natija() {
+      let score = 0;
+
+      for (let i = 0; i < saman.length; i++) {
+        let userKaJawab = Number(document.getElementById("ans" + i).value);
+
+        if (userKaJawab === saman[i].sahiDaam) {
+          score = score + 1;
+        }
+      }
+
+      document.getElementById("score").textContent =
+        "Tumne " + saman.length + " mein se " + score + " sahi kiye!";
+    }
+  </script>
+
+</body>
+</html>
