@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My information</title>
     <style>
-        .Aagaya{
-            text-decoration : line-through ; color : blue;
+        .Aagaya {
+            text-decoration: line-through;
+            color: blue;
         }
     </style>
 </head>
@@ -22,9 +23,8 @@
         let input = document.querySelector("#naamInput");
         let addBtn = document.querySelector("#addBtn");
         let list = document.querySelector("#soldiersList");
-        addBtn.addEventListener("click", function () {
-            let nam = input.value;
-            if (nam === "") return;
+        let  naam = [];
+          function dikhao(nam){
             let li = document.createElement("li");
             let span = document.createElement("span");
             span.textContent = nam;
@@ -42,8 +42,24 @@
             li.appendChild(doneBtn);
             li.appendChild(delBtn);
             list.appendChild(li);
-            input.value = "";
-        });
+        }
+        let saved = localStorage.getItem("meriList");
+        if (saved){
+            naam = JSON.parse(saved);
+            naam.forEach(function (n){
+                dikhao(n);
+            });
+        }
+addBtn.addEventListener("click",function(){
+let nam = input.value;
+if (nam === "") return;
+naam.push(nam);
+localStorage.setItem("meriList",JSON.stringify(nam));
+dikhao(nam);
+input.value = "";
+
+});
+
     </script>
 </body>
 
