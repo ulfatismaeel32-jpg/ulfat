@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My information</title>
+</head>
+
+<body>
+    <script>
+        async function musum() {
+            let responce = await fetch("https://api.open-meteo.com/v1/forecast?latitude=24.86&longitude=67.01&current=weather_code,temperature_2m")
+            let data = await responce.json();
+            console.log(data.current.temperature_2m);
+            console.log(data.current.weather_code);
+            let result = { musum: data.current.weather_code, temperature: data.current.temperature_2m };
+            console.log(result);
+        }
+        musum();
+
+    </script>
+</body>
+
+</html>
