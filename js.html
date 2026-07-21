@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My information</title>
+    <style>
+        h1{
+            display : flex;
+             flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap : 10px;
+           
+        }
+    </style>
+</head>
+<body>
+    <h1>hello everyone check js please for meaningfull information</h1>
+    <script>
+
+        let user = {naam :" ulfat " , age : 18};
+let naya = {...user , sheher : "dgk"};
+        console.log(user.age);
+        let {naam} = user;
+        console.log(naam);
+        function studentsAttendents() {
+            let count = 0 ;
+            return function(){
+                count = count + 1 ;
+                return count;
+            };
+        }
+         let  attendents = studentsAttendents();
+console.log(attendents());
+console.log(attendents());
+console.log(attendents());
+let name = [ "alia ",  "ayesha "," aman" , "namreen"];
+let nai = [...name , "ulfat"];
+console.log(nai);
+    </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+- generic [ref=e1]:
+  - heading "let's know the temperature of your city" [level=1] [ref=e2]
+  - textbox "city ka naam likhoo" [ref=e3]: Multan
+  - button "click here" [active] [ref=e4]

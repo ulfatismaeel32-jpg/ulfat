@@ -1,0 +1,2 @@
+[     240ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8199/favicon.ico:0
+[   17780ms] [LOG] Multan 30.19679 71.47824 @ http://localhost:8199/citytemp.html:24

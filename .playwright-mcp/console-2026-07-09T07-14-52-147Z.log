@@ -1,0 +1,4 @@
+[     220ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8199/favicon.ico:0
+[     838ms] [LOG] 31.9 @ http://localhost:8199/weather.html:14
+[     838ms] [LOG] 2 @ http://localhost:8199/weather.html:15
+[     838ms] [LOG] {musum: 2, temperature: 31.9} @ http://localhost:8199/weather.html:17

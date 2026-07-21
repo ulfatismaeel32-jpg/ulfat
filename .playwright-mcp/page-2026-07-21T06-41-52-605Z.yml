@@ -1,0 +1,6 @@
+- generic [active] [ref=e1]:
+  - heading "let's know the temperature of karachi and lahore respectively" [level=1] [ref=e2]
+  - paragraph [ref=e3]: Karachi ka mousam
+  - paragraph [ref=e4]: lahore ka mousam
+  - textbox [ref=e5]
+  - paragraph [ref=e7]: loading...

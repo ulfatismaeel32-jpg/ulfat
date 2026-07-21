@@ -1,0 +1,3 @@
+[      42ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8799/favicon.ico:0
+[     678ms] [LOG] Temperature: 51 @ http://localhost:8799/promiseall.html:27
+[     678ms] [LOG] Temperature: 3 @ http://localhost:8799/promiseall.html:28

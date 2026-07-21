@@ -8,14 +8,23 @@
 </head>
 
 <body>
+    <div id="musumCard"></div>
     <script>
         async function musum() {
+               let card = document.querySelector("#musumCard");
+               card.innerHTML = "<p>loading....</p>";
+               try{
             let responce = await fetch("https://api.open-meteo.com/v1/forecast?latitude=24.86&longitude=67.01&current=weather_code,temperature_2m")
             let data = await responce.json();
-            console.log(data.current.temperature_2m);
-            console.log(data.current.weather_code);
-            let result = { musum: data.current.weather_code, temperature: data.current.temperature_2m };
-            console.log(result);
+     
+        card.innerHTML=
+        "<h1>karachii ka mousum</h1>" +
+        "<p>weather : "+ data.current.weather_code + " </p>" +
+          "<p>Temperature : "+ data.current.temperature_2m + " </p>";
+        }
+        catch (error){
+            card.innerHTML = "<p>sorry network problem!!!</p>";
+        }
         }
         musum();
 
