@@ -7,10 +7,10 @@ async function showWheather() {
 
         card.innerHTML =
             "<h1>karachi ka mousam</h1>" +
-            "<p>weather : " +  karachiData.current.weather_code + " </p>" +
+            "<p>weather : " + data.karachi  + " </p>" +
 
             "<h1>lahore ka mousum</h1>" +
-            "<p>weather : " + lahoreData.current.weather_code + " </p>"
+            "<p>weather : " + data.lahore + " </p>"
     }
     catch (error) {
         card.innerHTML = "<p>sorry network problem!!!</p>";
